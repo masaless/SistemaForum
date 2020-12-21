@@ -1,0 +1,20 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    background-color: #ff8c00;
+}
+
+#formulario-pergunta {
+    margin-top: 5vh;
+}
+
+img {
+    width: 100px;
+
+}
+
+.voltar {
+    margin-bottom: 10px;
+    
+}

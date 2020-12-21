@@ -8,10 +8,10 @@ const Pergunta = require("./database/Pergunta")
 const connection = require("./database/database");
 connection
     .authenticate()
-    .then(() =>{
+    .then(() => {
         console.log("CONEXÃO FEITA COM O BANCO DE DADOS")
     })
-    .catch((msgErro) =>{
+    .catch((msgErro) => {
         console.log(msgErro)
     })
 //  
@@ -20,19 +20,21 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 // 
 // Body parser
-app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 // 
 // rotas
 app.get("/", (req, res) => {
-    Pergunta.findAll({raw: true, order:[
-        ['id', 'DESC'] // ASC = Crescente DESC = DECRESCENTE
-    ]}).then(perguntas => {
+    Pergunta.findAll({
+        raw: true, order: [
+            ['id', 'DESC'] // ASC = Crescente DESC = DECRESCENTE
+        ]
+    }).then(perguntas => {
         res.render("index", {
             perguntas: perguntas
         });
     });
-    
+
 })
 app.get("/perguntar", (req, res) => {
     res.render("perguntar")
@@ -45,6 +47,23 @@ app.post("/salvarpergunta", (req, res) => {
         descricao: descricao
     }).then(() => {
         res.redirect("/")
+    })
+})
+
+app.get("/pergunta/:id", (req, res) =>{
+    var id = req.params.id 
+    var pergunta = req.body.pergunta
+    Pergunta.findOne({
+        where: {id: id}
+    }).then(pergunta => {
+       if(pergunta != undefined){ //Pergunta achada
+            res.render("pergunta", {
+                pergunta: pergunta
+            });
+            
+       }else { //Pergunta não encontrada
+            res.redirect("/")     
+       }
     })
 })
 app.listen(3030, () => {

@@ -18,3 +18,17 @@ img {
     margin-bottom: 10px;
     
 }
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    height: 100px;
+    background-color: #c46c01;
+    color: white;
+    padding: 35px;
+}
+footer {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}

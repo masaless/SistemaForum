@@ -19,16 +19,22 @@ img {
     
 }
 
-footer {
+/* footer {
     text-align: center;
     margin-top: 20px;
     height: 100px;
     background-color: #c46c01;
     color: white;
     padding: 35px;
-}
-footer {
-    bottom: 0;
+} */
+/* footer {
+    margin-bottom: -50px;
+    bottom: -50;
     position: absolute;
     width: 100%;
+    
+} */
+
+#warning {
+    margin-top: 10px;
 }

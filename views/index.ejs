@@ -8,7 +8,7 @@
             <hr>
             <h1>Perguntas</h1>
             <hr>
-            <% perguntas.forEach(pergunta=> { %>
+            <% perguntas.forEach(pergunta => { %>
                 <br>
                 <div class="card">
                     <div class="card-body">
@@ -17,7 +17,7 @@
                         </h3>
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn-warning">Responder</button>
+                        <a href="/pergunta/<%= pergunta.id %>"><button class="btn btn-warning">Responder</button></a> 
                     </div>
                 </div>
             <% }) %>

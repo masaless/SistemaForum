@@ -1,5 +1,4 @@
 const Sequilize = require("sequelize")
-const { model } = require("./database")
 const connection = require("./database")
 
 const Resposta = connection.define("respostas", {
@@ -15,4 +14,4 @@ const Resposta = connection.define("respostas", {
 
 Resposta.sync({force: false})
 
-model.exports = Resposta
+module.exports = Resposta
